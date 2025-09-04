@@ -17,7 +17,7 @@ export default function WishlistPage() {
     <div className="mx-auto max-w-5xl px-4 pb-16 pt-6">
       <BackHome />
       <header className="mb-6">
-        <EmojiTitle emoji="📝" text="Tea Wishlist" />
+        <EmojiTitle emoji="📝" title="Tea Wishlist" />
         <p className="mt-1 text-ink/70">teas I’d like to try next</p>
       </header>
 

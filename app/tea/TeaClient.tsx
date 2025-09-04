@@ -47,7 +47,7 @@ export default function TeaClient() {
       <BackHome />
 
       <header className="mb-6">
-        <EmojiTitle emoji="🍵" text="Tea Journal" />
+        <EmojiTitle emoji="🍵" title="Tea Journal" />
         <p className="mt-1 text-ink/70">sips, ratings, and steeped thoughts</p>
       </header>
 
