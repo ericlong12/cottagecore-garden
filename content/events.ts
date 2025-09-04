@@ -1,23 +1,47 @@
-
 export type Event = {
-  id: string
-  title: string
-  date: string // YYYY-MM-DD
-  location?: string
-  note?: string
-  status: 'upcoming' | 'past'
-  link?: string
-}
+  id: string;
+  date: string;      // ISO YYYY-MM-DD
+  title: string;
+  location?: string;
+  link?: string;
+  note?: string;
+};
 
-export const events: Event[] = [
-  // Past (archive 2025)
-  { id: '2025-01-20-cozy-coding', title: 'Cozy Coding Jam', date: '2025-01-20', note: 'Warm drinks + tiny builds.', status: 'past' },
-  { id: '2025-03-15-spring-tea', title: 'Spring Tea Gathering', date: '2025-03-15', note: 'Cherry blossom vibes.', status: 'past' },
-  { id: '2025-06-02-summer-hack', title: 'Summer Hack Night', date: '2025-06-02', note: 'Little experiments.', status: 'past' },
+export const eventsByYear: Record<number, Event[]> = {
+  2025: [
+    {
+      id: "2025-10-12-maker-fair",
+      date: "2025-10-12",
+      title: "Local Maker Fair",
+      note: "Walkable circuits & crafts.",
+    },
+    {
+      id: "2025-11-03-tea-meetup",
+      date: "2025-11-03",
+      title: "Tea Meetup",
+      note: "Oolongs and stories.",
+    },
+    {
+      id: "2025-12-07-indie-dev-night",
+      date: "2025-12-07",
+      title: "Indie Dev Night",
+      note: "Show-and-tell builds.",
+    },
+  ],
 
-  // Upcoming (current date Sep 3, 2025)
-  { id: '2025-09-21-local-flea', title: 'Local Flea Market', date: '2025-09-21', note: 'Hoping to find a teacup.', status: 'upcoming' },
-  { id: '2025-10-12-maker-fair', title: 'Local Maker Fair', date: '2025-10-12', note: 'Bring balloons + gadgets.', status: 'upcoming' },
-  { id: '2025-11-03-tea-meetup', title: 'Tea Meetup', date: '2025-11-03', note: 'Oolongs and stories.', status: 'upcoming' },
-  { id: '2025-12-07-indie-dev', title: 'Indie Dev Night', date: '2025-12-07', note: 'Show-and-tell builds.', status: 'upcoming' },
-]
+  2024: [
+    {
+      id: "cozy-coding-2024-01-20",
+      date: "2024-01-20",
+      title: "Cozy Coding Jam",
+      location: "Home",
+      note: "socks + soup day",
+    },
+    {
+      id: "spring-tea-2024-03-15",
+      date: "2024-03-15",
+      title: "Spring Tea Gathering",
+      note: "Cherry blossoms & gaiwan practice.",
+    },
+  ],
+};
