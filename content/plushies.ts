@@ -1,3 +1,4 @@
+// content/plushies.ts
 export type Plushie = {
   id: string
   name: string
@@ -53,7 +54,5 @@ export const plushies: Plushie[] = [
     about:
       "Puddlewick is a green bean of chaos who loves puddle-splash speedruns and cheering during deploys.",
     favorites: ["ceremonial matcha", "lily-pad naps", "spicy ramen"],
-  },
-]
   },
 ]
