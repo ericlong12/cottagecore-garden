@@ -1,18 +1,20 @@
-
 export type Balloon = {
-  id: string
+  slug: string
   name: string
-  difficulty: 'seedling' | 'leaf' | 'tree'
-  thoughts: string
-  tip?: string
+  difficulty: 1|2|3|4|5
+  timeMins?: number
+  notes?: string
+  photo?: string   // optional, /balloons/*.webp|.jpg (4:3 or square)
+  alt?: string
 }
 
 export const balloons: Balloon[] = [
-  { id: 'dog', name: 'Dog', difficulty: 'seedling', thoughts: 'Quick and easy, always makes people smile.' },
-  { id: 'sword', name: 'Sword', difficulty: 'seedling', thoughts: 'Fun to hand out, but invites too many duels.' },
-  { id: 'flower', name: 'Flower', difficulty: 'leaf', thoughts: 'Very pretty, but pops if twisted too tight.' },
-  { id: 'giraffe', name: 'Giraffe', difficulty: 'tree', thoughts: 'Tricky balance, worth it for the long neck.' },
-  { id: 'bunny', name: 'Bunny', difficulty: 'leaf', thoughts: 'Fits the theme; ears are the fun part.' },
-  { id: 'heart', name: 'Heart', difficulty: 'seedling', thoughts: 'Cute and simple; great for photos.' },
-  { id: 'butterfly', name: 'Butterfly', difficulty: 'leaf', thoughts: 'Delicate feel, rewarding shape.' },
+  { slug: "dog",    name: "Dog",    difficulty: 1, timeMins: 2, notes: "Classic and quick; instant smiles.", photo: "/balloons/dog.webp", alt: "A simple balloon dog" },
+  { slug: "sword",  name: "Sword",  difficulty: 1, timeMins: 1, notes: "Fun to hand out; too many duels though." },
+  { slug: "flower", name: "Flower", difficulty: 2, timeMins: 4, notes: "Prettiest; squeaky twists need patience." },
+  { slug: "giraffe",name: "Giraffe",difficulty: 3, timeMins: 3, notes: "Neck drama but worth it." },
+  { slug: "hat",    name: "Hat",    difficulty: 2, timeMins: 3, notes: "Looks great in photos; sizing is a puzzle." },
+  { slug: "heart",  name: "Heart",  difficulty: 1, timeMins: 2, notes: "Sweet and simple; good for thank‑yous." },
+  { slug: "teddy",  name: "Teddy",  difficulty: 3, timeMins: 5, notes: "A little fiddly; very cuddly when it works." },
+  { slug: "flower-bracelet", name: "Flower Bracelet", difficulty: 2, timeMins: 4, notes: "Cute accessory; pops if over‑inflated." },
 ]

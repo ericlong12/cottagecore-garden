@@ -1,32 +1,33 @@
+export type DiaryEntry = {
+  slug: string;
+  date: string; // ISO YYYY-MM-DD
+  title: string;
+  bodyMarkdown: string;
+};
 
-export type Diary = {
-  id: string
-  title: string
-  date: string
-  slug: string
-  content: string
-}
-
-export const diary: Diary[] = [
+export const diary: DiaryEntry[] = [
   {
-    id: '2025-09-01-rainy-nest',
-    title: 'Rainy Day Nest',
-    date: '2025-09-01',
-    slug: 'rainy-day-nest',
-    content: `It rained all day, and Puddlewick insisted on sitting at the window, pretending he could swim through the glass. Malice claimed the blanket, Powder dozed without moving, and Thistle fell from a stack of books with a sigh. I drank genmaicha and felt like time had paused, just for us.`
+    slug: "on-plushie-conversations",
+    date: "2025-08-28",
+    title: "On Plushie Conversations",
+    bodyMarkdown: `Sometimes I wonder if my plushies are little mirrors, reflecting moods I don't say out loud.
+
+Today Sprout was especially chirpy, so maybe I was too. Mochi disagreed, but Mochi often does.`,
   },
   {
-    id: '2025-08-20-first-balloon-flower',
-    title: 'First Balloon Flower',
-    date: '2025-08-20',
-    slug: 'first-balloon-flower',
-    content: `I twisted my first flower balloon today. It squeaked and threatened to pop, but in the end it held together. I think it’s the most fragile thing I’ve ever made. I liked it anyway, because fragile things are worth making too.`
+    slug: "tea-as-weather",
+    date: "2025-08-15",
+    title: "Tea as Weather",
+    bodyMarkdown: `Hojicha feels like draping myself in dusk. Heavy, earthy, grounding.
+
+I needed that after a day where my head felt like clouds about to burst.`,
   },
   {
-    id: '2025-07-11-tea-as-weather',
-    title: 'Tea as Weather',
-    date: '2025-07-11',
-    slug: 'tea-as-weather',
-    content: `Drinking hojicha feels like draping myself in dusk. It’s heavy, earthy, grounding. I needed that after a day where my head felt like clouds ready to burst.`
-  }
-]
+    slug: "quiet-friday",
+    date: "2025-06-06",
+    title: "Quiet Friday",
+    bodyMarkdown: `Fixed a tiny bug, watered the basil, and let Thistle guard a fresh stack of books.
+
+Small progress tastes like honey.`,
+  },
+];

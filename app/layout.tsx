@@ -15,6 +15,9 @@ export const metadata = {
     description: 'soft things • small tech • warm cups',
     images: ['/og.png'],
   },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -33,3 +36,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
+
