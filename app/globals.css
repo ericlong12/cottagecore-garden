@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: theme(colors.cream);
+  --text: theme(colors.ink);
+  --accent: theme(colors.sage);
+  --accent-2: theme(colors.moss);
+  --highlight: theme(colors.blush);
+  --butter: theme(colors.butter);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card {
+  @apply rounded-2xl border border-moss/30 bg-white/60 shadow-soft backdrop-blur px-5 py-4;
+}
+
+.card:hover {
+  @apply shadow-lg;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-xl border border-moss/30 bg-cream/70 px-4 py-2 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-white/80 hover:shadow-md;
+}
+
+.ribbon-back {
+  @apply inline-flex items-center gap-2 rounded-xl border border-moss/40 bg-white/70 px-3 py-1 text-sm text-ink;
+}
+
+.leaf {
+  position: absolute;
+  left: 10%;
+  top: -5%;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #A8C1A1, #6F8F6A);
+  border-radius: 2px 10px 2px 10px;
+  opacity: 0.0;
+  animation: leafdrift 14s ease-in-out infinite;
+}
+
+h1, h2, h3, .heading-serif { font-family: var(--font-serif), serif; }

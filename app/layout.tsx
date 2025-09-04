@@ -1,0 +1,35 @@
+import './globals.css'
+import { DM_Serif_Text, Inter } from 'next/font/google'
+
+const dm = DM_Serif_Text({ subsets: ['latin'], weight: '400', variable: '--font-serif' })
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata = {
+  title: 'My Garden',
+  description: 'soft things • small tech • warm cups',
+  icons: {
+    icon: '/BunnyLogo.png',
+  },
+  openGraph: {
+    title: 'My Garden',
+    description: 'soft things • small tech • warm cups',
+    images: ['/og.png'],
+  },
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className={`${inter.className} ${dm.variable}`}>
+        <div className="fixed inset-0 pointer-events-none">
+          <div className="leaf" style={{ left: '10%', animationDelay: '0s' }} />
+          <div className="leaf" style={{ left: '40%', animationDelay: '4s' }} />
+          <div className="leaf" style={{ left: '70%', animationDelay: '8s' }} />
+        </div>
+        <div className="mx-auto max-w-3xl px-4 py-8">
+          {children}
+        </div>
+      </body>
+    </html>
+  )
+}
