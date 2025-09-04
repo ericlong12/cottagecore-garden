@@ -19,7 +19,7 @@ export const plushies: Plushie[] = [
     funFact: "Collects shiny bottle caps and hides them under teacups.",
     about:
       "Malice looks a bit goth but is secretly gentle; loves moonlit window perches, low-volume lofi, and nibbling on carrot macarons.",
-    favorites: ["Earl Grey with bergamot", "acorn buttons", "midnight coding streams"]
+    favorites: ["Earl Grey with bergamot", "acorn buttons", "midnight coding streams"],
   },
   {
     id: "powder",
@@ -30,7 +30,7 @@ export const plushies: Plushie[] = [
     funFact: "Can identify 7 blanket fabrics by touch alone.",
     about:
       "Powder is the studio’s emotional support bear—keeps vibes calm, watches builds compile, and insists on warm socks.",
-    favorites: ["snow chrysanthemum tea", "fresh laundry day", "soft piano playlists"]
+    favorites: ["snow chrysanthemum tea", "fresh laundry day", "soft piano playlists"],
   },
   {
     id: "thistle",
@@ -41,7 +41,7 @@ export const plushies: Plushie[] = [
     funFact: "Names clouds after programming languages.",
     about:
       "Thistle is a curious cloud-dweller who loves oolong tastings, stack traces, and explaining things with tiny claw gestures.",
-    favorites: ["high-mountain oolong", "neat commit histories", "rainy Sundays"]
+    favorites: ["high-mountain oolong", "neat commit histories", "rainy Sundays"],
   },
   {
     id: "puddlewick",
@@ -52,8 +52,8 @@ export const plushies: Plushie[] = [
     funFact: "Knows how to twist 3 balloon animals without popping them (usually).",
     about:
       "Puddlewick is a green bean of chaos who loves puddle-splash speedruns and cheering during deploys.",
-    favorites: ["ceremonial matcha", "lily-pad naps", "spicy ramen"]
-  }
+    favorites: ["ceremonial matcha", "lily-pad naps", "spicy ramen"],
+  },
 ]
   },
 ]
