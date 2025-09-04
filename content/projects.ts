@@ -1,34 +1,64 @@
-
 export type Project = {
-  id: string
+  slug: string
   title: string
+  year: number
   blurb: string
   tech: string[]
-  links: { type: 'demo' | 'repo', url: string }[]
-  thumb?: string
-  featured?: boolean
+  github?: string
+  live?: string
+  thumbnail?: string   // /projects/*.webp or .jpg (16:9)
+  alt?: string
 }
 
 export const projects: Project[] = [
   {
-    id: 'plushie-db',
-    title: 'Plushie DB',
-    blurb: 'A cozy catalog for all my plush friends, with profiles and stories.',
-    tech: ['Next.js','Tailwind','Supabase'],
-    links: [{ type: 'demo', url: '#' }, { type: 'repo', url: '#' }],
+    slug: "garden-journal",
+    title: "Garden Journal",
+    year: 2025,
+    blurb: "A gentle web app for tracking plant growth, weather, and cozy garden notes. Built for slow mornings and rainy afternoons.",
+    tech: ["Next.js", "TypeScript", "Tailwind", "SQLite"],
+    github: "https://github.com/ericlong12/garden-journal",
+    live: "https://garden-journal.vercel.app",
+    thumbnail: "/projects/garden-journal.webp",
+    alt: "Screenshot of Garden Journal app with plant entries",
   },
   {
-    id: 'tea-tracker',
-    title: 'Tea Tracker',
-    blurb: 'Rate and remember every cup I’ve tried, with tasting notes and photos.',
-    tech: ['React','Prisma','Postgres'],
-    links: [{ type: 'demo', url: '#' }, { type: 'repo', url: '#' }],
+    slug: "tea-timer",
+    title: "Tea Timer",
+    year: 2024,
+    blurb: "Minimalist tea steeping timer with gentle alerts and a cottagecore palette. For mindful brewing and quiet breaks.",
+    tech: ["React", "Vite", "Tailwind"],
+    github: "https://github.com/ericlong12/tea-timer",
+    live: "https://tea-timer.vercel.app",
+    thumbnail: "/projects/tea-timer.webp",
+    alt: "Tea Timer app showing countdown and tea types",
   },
   {
-    id: 'feelings-radio',
-    title: 'Feelings Radio',
-    blurb: 'A minimal mood diary that whispers back to you.',
-    tech: ['Next.js','Tailwind'],
-    links: [{ type: 'demo', url: '#' }, { type: 'repo', url: '#' }],
+    slug: "plushie-catalog",
+    title: "Plushie Catalog",
+    year: 2023,
+    blurb: "A playful catalog for plushie collections, with photos, stories, and favorite teas. Made for sharing soft things.",
+    tech: ["Next.js", "TypeScript", "Cloudinary"],
+    github: "https://github.com/ericlong12/plushie-catalog",
+    thumbnail: "/projects/plushie-catalog.webp",
+    alt: "Plushie Catalog grid with plushie photos",
+  },
+  {
+    slug: "cozy-links",
+    title: "Cozy Links",
+    year: 2024,
+    blurb: "A simple link-in-bio site with warm colors and gentle animations. For sharing projects and journal entries.",
+    tech: ["Astro", "Tailwind"],
+    live: "https://cozy-links.vercel.app",
+    thumbnail: "/projects/cozy-links.webp",
+    alt: "Cozy Links homepage with soft color blocks",
+  },
+  {
+    slug: "balloon-animal-guide",
+    title: "Balloon Animal Guide",
+    year: 2023,
+    blurb: "Tiny guide for balloon animal basics, with step-by-step photos and tips for beginners. Wholesome and fun.",
+    tech: ["Svelte", "Tailwind"],
+    // No thumbnail, so omit
   },
 ]
