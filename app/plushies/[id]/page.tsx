@@ -8,6 +8,16 @@ export function generateStaticParams() {
   return plushies.map((p) => ({ id: p.id }))
 }
 
+export function generateMetadata({ params }: { params: { id: string } }) {
+  const p = plushies.find((x) => x.id === params.id)
+  if (!p) return {}
+  return {
+    title: `${p.name} • Plushie`,
+    description: `${p.name} — ${p.species}`,
+    openGraph: { images: [p.avatar] },
+  }
+}
+
 export default function PlushieDetail({ params }: { params: { id: string } }) {
   const p = plushies.find((x) => x.id === params.id)
   if (!p) return notFound()
@@ -26,7 +36,9 @@ export default function PlushieDetail({ params }: { params: { id: string } }) {
 
         <ul className="mt-3 flex flex-wrap gap-2 text-sm">
           {p.traits.map((t) => (
-            <li key={t} className="rounded-full border border-moss/30 px-2 py-0.5">{t}</li>
+            <li key={t} className="rounded-full border border-moss/30 px-2 py-0.5" >
+              {t}
+            </li>
           ))}
         </ul>
 
@@ -35,6 +47,7 @@ export default function PlushieDetail({ params }: { params: { id: string } }) {
             <span className="font-medium">Fun fact:</span> {p.funFact}
           </p>
         )}
+
         <p className="mt-2 text-sm text-ink/80">{p.about}</p>
 
         {p.favorites?.length ? (
