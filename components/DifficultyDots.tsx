@@ -8,7 +8,7 @@ export function DifficultyDots({ level, className = "" }: { level: 1|2|3|4|5; cl
         <span
           aria-hidden="true"
           key={i}
-          className={`inline-block h-2.5 w-2.5 rounded-full ${i < l ? "bg-moss" : "bg-ink/20"}`}
+          className={`inline-block h-2.5 w-2.5 rounded-full ${i < l ? "bg-moss" : "bg-ink/20"} ${i >= l - 1 ? "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-moss" : ""}`}
         />
       ))}
     </div>

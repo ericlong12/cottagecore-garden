@@ -23,7 +23,7 @@ export default function CalendarPage() {
     .sort((a, b) => b - a);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
       <BackHome />
       <header className="mb-6">
         <EmojiTitle emoji="📅" text="Future Calendar" />

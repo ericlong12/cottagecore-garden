@@ -48,13 +48,17 @@ export const eventsByYear: Record<number, Event[]> = {
 
 export type CalendarEvent = {
   slug: string;
-  date: string; // YYYY-MM-DD
+  date: string;         // ISO YYYY-MM-DD (all-day)
   title: string;
   location?: string;
   url?: string;
   notes?: string;
-  tags?: string[];
+  tags?: string[];      // talk, meetup, workshop, conference, hackathon, playtest, travel, personal
 };
 
 // Placeholder empty list — populate with your real events later
-export const events: CalendarEvent[] = [];
+export const events: CalendarEvent[] = [
+  // keep your existing events here; add tags when you like
+  // example:
+  // { slug: "local-meetup", date: "2025-03-14", title: "Local JS Meetup", location: "Seattle", url: "https://…", tags: ["meetup"] },
+];

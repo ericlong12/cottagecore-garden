@@ -26,7 +26,7 @@ export default function DiaryIndex() {
   const years = Object.keys(groups).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
       <BackHome />
 
       <header className="mb-6">

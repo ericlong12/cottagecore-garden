@@ -13,13 +13,15 @@ export default function Page() {
         </h1>
       </header>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <LinkCard href="/plushies" emoji="🧸" title="Meet My Plushies" blurb="a little cast of characters" />
-        <LinkCard href="/projects" emoji="🧪" title="Projects I’ve Built" blurb="tiny builds & code curiosities" />
-        <LinkCard href="/tea" emoji="🍵" title="Tea Journal" blurb="sips, ratings, and steeped thoughts" />
-        <LinkCard href="/balloons" emoji="🎈" title="Balloon Animals" blurb="twists, pops, and favorites" />
-        <LinkCard href="/diary" emoji="📖" title="My Diary" blurb="longer reflections, whenever they bloom" />
-        <LinkCard href="/calendar" emoji="📅" title="Future Calendar" blurb="where I might be this year" />
+      <div className="mx-auto max-w-5xl px-4 pb-16 pt-6" id="main">
+        <div className="grid gap-4 md:grid-cols-2">
+          <LinkCard href="/plushies" emoji="🧸" title="Meet My Plushies" blurb="a little cast of characters" />
+          <LinkCard href="/projects" emoji="🧪" title="Projects I’ve Built" blurb="tiny builds & code curiosities" />
+          <LinkCard href="/tea" emoji="🍵" title="Tea Journal" blurb="sips, ratings, and steeped thoughts" />
+          <LinkCard href="/balloons" emoji="🎈" title="Balloon Animals" blurb="twists, pops, and favorites" />
+          <LinkCard href="/diary" emoji="📖" title="My Diary" blurb="longer reflections, whenever they bloom" />
+          <LinkCard href="/calendar" emoji="📅" title="Future Calendar" blurb="where I might be this year" />
+        </div>
       </div>
 
       <footer className="mt-8 text-center text-sm text-ink/70">

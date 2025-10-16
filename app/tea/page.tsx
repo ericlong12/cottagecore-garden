@@ -7,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TeaClient />;
+  return (
+    <div className="mx-auto max-w-4xl px-4 pb-16 pt-6" id="main">
+      <TeaClient />
+    </div>
+  );
 }
