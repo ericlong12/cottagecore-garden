@@ -55,4 +55,16 @@ export const plushies: Plushie[] = [
       "Puddlewick is a green bean of chaos who loves puddle-splash speedruns and cheering during deploys.",
     favorites: ["ceremonial matcha", "lily-pad naps", "spicy ramen"],
   },
+  {
+  id: "fable",
+  name: "Fable",
+  species: "tan bunny",
+  avatar: "/plushies/fable.png",
+  traits: ["storyteller", "gentle paws", "dawn cuddler"],
+  funFact: "Can recall the first line of every bedtime story.",
+  about:
+    "Fable is a shy, bookish bun who keeps a pocket notebook of cozy tales and sketches of friends.",
+  favorites: ["honey oolong", "butter cookies", "rainy reading nooks"],
+},
+
 ]
