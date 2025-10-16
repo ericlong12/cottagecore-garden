@@ -13,9 +13,9 @@ const styles: Record<TeaType, string> = {
   herbal: "bg-lavender/25 text-ink", // ← added
 };
 
-export function TypeChip({ type }: { type: TeaType }) {
+export function TypeChip({ type, className }: { type: TeaType; className?: string }) {
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs ${styles[type]}`}>
+    <span className={`inline-flex items-center gap-2 rounded-full border border-ink/10 bg-cream px-3 py-1 text-sm text-ink ${className ?? ""}`}>
       {type}
     </span>
   );

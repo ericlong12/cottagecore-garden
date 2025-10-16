@@ -34,7 +34,7 @@ export default function TeaClient() {
   const count = list.length;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-4xl px-4 pb-16 pt-6" id="main">
       <BackHome />
       <header className="mb-2">
         <EmojiTitle emoji="🍵" text="Tea Journal" />

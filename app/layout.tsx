@@ -15,15 +15,20 @@ export const metadata = {
     description: 'soft things • small tech • warm cups',
     images: ['/og.png'],
   },
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
-  ),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://cottagecore-garden.vercel.app"),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${dm.variable}`}>
+        {/* Skip to content */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-cream focus:px-3 focus:py-2 focus:text-ink focus:shadow-soft"
+        >
+          Skip to content
+        </a>
         <div className="fixed inset-0 pointer-events-none">
           <div className="leaf" style={{ left: '10%', animationDelay: '0s' }} />
           <div className="leaf" style={{ left: '40%', animationDelay: '4s' }} />

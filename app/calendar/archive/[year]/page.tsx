@@ -1,53 +1,33 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import BackHome from "@/components/BackHome";
 import EmojiTitle from "@/components/EmojiTitle";
-import { eventsByYear } from "@/content/events";
-import { isoCompare } from "@/lib/date";
-import { EventRow } from "@/components/EventRow";
+import CalendarYearClient, { type CalendarEvent } from "@/components/CalendarYearClient";
+import { events as allEvents } from "@/content/events";
 
 type Params = { params: { year: string } };
 
-export function generateStaticParams() {
-  return Object.keys(eventsByYear).map((y) => ({ year: String(y) }));
-}
-
 export function generateMetadata({ params }: Params): Metadata {
+  const year = Number(params.year);
   return {
-    title: `Calendar Archive ${params.year} • My Garden`,
-    description: `Events from ${params.year}.`,
+    title: `Calendar ${year} • My Garden — Eric`,
+    description: `Events from ${year}.`,
   };
 }
 
 export default function YearArchive({ params }: Params) {
-  const yearNum = Number(params.year);
-  const list = [...(eventsByYear[yearNum] ?? [])].sort((a, b) => isoCompare(b.date, a.date));
+  const year = Number(params.year);
+  const events: CalendarEvent[] = allEvents.filter(
+    (e) => new Date(e.date).getFullYear() === year,
+  );
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
       <BackHome />
       <header className="mb-6">
-        <EmojiTitle emoji="📚" text="Archive" />
-        <p className="mt-1 text-ink/70">past plans from {params.year}</p>
+        <EmojiTitle emoji="📅" text={`calendar • ${year}`} />
       </header>
 
-      {list.length === 0 ? (
-        <div className="rounded-2xl border border-ink/10 bg-cream/60 p-6 shadow-sm text-center">
-          <p className="text-ink/70 mb-2">no entries for {params.year} yet</p>
-          <Link
-            href="/calendar"
-            className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 mt-4 hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
-          >
-            ← Back to calendar
-          </Link>
-        </div>
-      ) : (
-        <section className="space-y-4">
-          {list.map((event) => (
-            <EventRow key={event.id} event={event} />
-          ))}
-        </section>
-      )}
+      <CalendarYearClient year={year} events={events} />
     </div>
   );
 }

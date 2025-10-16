@@ -18,8 +18,8 @@ export default function Page() {
     <div className="mx-auto max-w-5xl px-4 pb-16 pt-6">
       <BackHome />
       <header className="mb-6">
-        <EmojiTitle emoji="🎈" text="Balloon Animals" />
-        <p className="mt-1 text-ink/70">twists, pops, and favorites</p>
+        <EmojiTitle emoji="🎈" text="balloons" />
+        <p className="mb-2 text-xs text-ink/60">difficulty: 1 easy — 5 tricky</p>
       </header>
 
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">

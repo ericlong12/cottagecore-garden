@@ -14,8 +14,8 @@ export function TeaCard({ tea }: TeaCardProps) {
 
   return (
     <article
-      className="card group h-full overflow-hidden p-0 transition will-change-transform"
-      aria-labelledby={headingId}
+      aria-labelledby={`t-${tea.slug}`}
+      className="rounded-2xl border border-ink/10 bg-cream/60 p-3 shadow-soft transition hover:shadow-md motion-reduce:transition-none"
     >
       {photo ? (
         <div className="relative aspect-[4/3] w-full bg-ink/5">
@@ -32,12 +32,18 @@ export function TeaCard({ tea }: TeaCardProps) {
         <div className="aspect-[4/3] w-full bg-ink/5" />
       )}
 
-      <div className="flex flex-col gap-2 p-4">
+      <div className="flex flex-col gap-2 p-2">
         <div className="flex items-start justify-between gap-3">
-          <h3 id={headingId} className="heading-serif text-base font-semibold">
+          <h3
+            id={`t-${tea.slug}`}
+            className="truncate font-serif text-lg text-ink md:text-xl"
+          >
             {name}
           </h3>
-          <TypeChip type={type} />
+          <TypeChip
+            type={type}
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+          />
         </div>
 
         {wishlist ? (

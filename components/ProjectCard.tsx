@@ -1,58 +1,77 @@
 import Image from "next/image";
-import { TechChip } from "./TechChip";
+import * as React from "react";
 import type { Project } from "@/content/projects";
+import { splitTech } from "@/lib/tech";
 
-export function ProjectCard({ project }: { project: Project }) {
-  const { title, year, blurb, tech, github, live, thumbnail, alt } = project;
+export type ProjectCardProps = { project: Project };
+
+export default function ProjectCard({ project }: ProjectCardProps) {
+  const { slug, title, year, blurb, tech = [], github, live, thumbnail, alt } = project;
+  const headingId = `p-${slug}`;
+
+  // Canonicalize tech labels for display (content stays untouched)
+  const { canon, unknown } = splitTech(tech);
+  const techToShow = [...canon, ...unknown];
 
   return (
-    <article className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-sm transition hover:shadow-md">
+    <article
+      className="card px-5 py-4"
+      aria-labelledby={headingId}
+    >
       <div className="flex gap-4">
         {thumbnail ? (
-          <div className="relative aspect-[16/9] w-40 min-w-0 overflow-hidden rounded-xl bg-ink/5">
+          <div className="relative aspect-[16/9] w-48 overflow-hidden rounded-xl bg-ink/5">
             <Image
               src={thumbnail}
               alt={alt ?? title}
               fill
               className="object-cover transition will-change-transform group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
-              sizes="(max-width: 640px) 40vw, 160px"
+              sizes="(max-width: 640px) 60vw, 192px"
             />
           </div>
         ) : null}
-        <div className={thumbnail ? "min-w-0 flex-1" : "w-full"}>
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-serif text-lg text-ink">{title}</h3>
-            <span className="text-xs text-ink/60">{year}</span>
-          </div>
-          <p className="mb-2 text-sm text-ink/80">{blurb}</p>
-          <div className="flex flex-wrap gap-2 mb-2">
-            {tech.map((t) => (
-              <TechChip key={t} label={t} />
-            ))}
-          </div>
-          <div className="flex gap-2">
-            {github && (
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Open GitHub for ${title}`}
-                className="text-xs underline hover:no-underline focus-visible:ring-2 focus-visible:ring-sage rounded px-1"
-              >
-                GitHub
-              </a>
-            )}
-            {live && (
+
+        <div className="min-w-0 flex-1">
+          <h3 id={headingId} className="truncate font-serif text-lg text-ink md:text-xl">
+            {title}
+          </h3>
+          <p className="text-sm text-ink/70">{year}</p>
+          {blurb ? <p className="mt-1 text-ink/80">{blurb}</p> : null}
+
+          {techToShow.length ? (
+            <div className="mt-2 flex flex-wrap gap-1">
+              {techToShow.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-ink/10 bg-cream px-2 py-0.5 text-xs text-ink"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          ) : null}
+
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            {live ? (
               <a
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Open Live site for ${title}`}
-                className="text-xs underline hover:no-underline focus-visible:ring-2 focus-visible:ring-sage rounded px-1"
+                className="underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
               >
                 Live
               </a>
-            )}
+            ) : null}
+            {github ? (
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+              >
+                GitHub
+              </a>
+            ) : null}
           </div>
         </div>
       </div>

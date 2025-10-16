@@ -45,3 +45,16 @@ export const eventsByYear: Record<number, Event[]> = {
     },
   ],
 };
+
+export type CalendarEvent = {
+  slug: string;
+  date: string; // YYYY-MM-DD
+  title: string;
+  location?: string;
+  url?: string;
+  notes?: string;
+  tags?: string[];
+};
+
+// Placeholder empty list — populate with your real events later
+export const events: CalendarEvent[] = [];

@@ -7,7 +7,7 @@ export function BalloonRow({ item }: { item: Balloon }) {
   const { name, difficulty, timeMins, notes, photo, alt } = item;
 
   return (
-    <article className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-sm transition hover:shadow-md motion-reduce:transition-none motion-reduce:hover:shadow-sm">
+    <li className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-soft transition transform-gpu duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none motion-reduce:transform-none">
       <div className="flex gap-4">
         {photo ? (
           <div className="relative aspect-[4/3] w-28 overflow-hidden rounded-lg bg-ink/5">
@@ -28,6 +28,6 @@ export function BalloonRow({ item }: { item: Balloon }) {
           {notes ? <p className="mt-1 text-sm text-ink/80">{notes}</p> : null}
         </div>
       </div>
-    </article>
+    </li>
   );
 }
