@@ -22,9 +22,11 @@ export default function Page() {
         <p className="mb-2 text-xs text-ink/60">difficulty: 1 easy — 5 tricky</p>
       </header>
 
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {list.map((it) => <BalloonRow key={it.slug} item={it} />)}
-      </section>
+      <ul className="grid gap-4 sm:grid-cols-2 list-none pl-0">
+        {list.map((it) => (
+          <BalloonRow key={it.slug} item={it} />
+        ))}
+      </ul>
     </div>
   );
 }
