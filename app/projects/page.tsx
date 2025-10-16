@@ -11,11 +11,29 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   const list = [...projects].sort(
-    (a, b) => b.year - a.year || a.title.localeCompare(b.title)
+    (a, b) => b.year - a.year || a.title.localeCompare(b.title),
   );
 
+  // JSON-LD for project list
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: list.map((p, i) => ({
+      "@type": "CreativeWork",
+      position: i + 1,
+      name: p.title,
+      url: p.live ?? p.github ?? undefined,
+      dateCreated: String(p.year),
+    })),
+  };
+
   return (
-    <main className="mx-auto max-w-5xl px-4 pb-16 pt-6">
+    <main className="mx-auto max-w-5xl px-4 pb-16 pt-6" id="main">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BackHome />
       <header className="mb-6">
         <EmojiTitle emoji="🧪" text="Projects I’ve Built" />

@@ -10,14 +10,10 @@ export type TeaCardProps = { tea: Tea };
 
 export function TeaCard({ tea }: TeaCardProps) {
   const { name, type, notes, rating, photo, alt, wishlist, slug } = tea;
-  const headingId = "tea-" + slug;
+  const headingId = `t-${slug}`;
 
   return (
-    <article
-      className="group rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-sm transition hover:shadow-md focus-within:shadow-md"
-      tabIndex={-1}
-      aria-labelledby={headingId}
-    >
+    <article className="card group p-4" aria-labelledby={headingId}>
       <div className="flex gap-4">
         {photo ? (
           <div className="relative aspect-[4/3] w-36 overflow-hidden rounded-xl bg-ink/5">
@@ -33,7 +29,7 @@ export function TeaCard({ tea }: TeaCardProps) {
 
         <div className="min-w-0 flex-1">
           <div className="mb-1 flex items-center gap-2">
-            <h3 id={headingId} className="truncate font-serif text-lg text-ink">
+            <h3 id={headingId} className="truncate font-serif text-lg text-ink md:text-xl">
               {name}
             </h3>
             <TypeChip type={type} />

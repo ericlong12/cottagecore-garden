@@ -1,49 +1,60 @@
+// app/diary/[year]/[slug]/page.tsx
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import BackHome from "@/components/BackHome";
 import EmojiTitle from "@/components/EmojiTitle";
 import { diary } from "@/content/diary";
-import { isoYear, formatISODateLabel } from "@/lib/date";
+import { autoLink } from "@/lib/text";
 
 type Params = { params: { year: string; slug: string } };
 
 export function generateStaticParams() {
-  return diary.map((e) => ({ year: isoYear(e.date), slug: e.slug }));
+  return diary.map((d) => ({ year: String(new Date(d.date).getFullYear()), slug: d.slug }));
 }
 
 export function generateMetadata({ params }: Params): Metadata {
-  const entry = diary.find((e) => e.slug === params.slug && isoYear(e.date) === params.year);
-  if (!entry) return { title: "Diary • My Garden" };
+  const entry = diary.find((d) => d.slug === params.slug);
   return {
-    title: `${entry.title} • My Diary`,
-    description: entry.bodyMarkdown.replace(/\s+/g, " ").slice(0, 140),
+    title: entry ? `${entry.title} • My Garden — Eric` : "Diary • My Garden — Eric",
+    description: entry?.bodyMarkdown?.slice(0, 140),
   };
 }
 
-export default function DiaryEntryPage({ params }: Params) {
-  const entry = diary.find((e) => e.slug === params.slug && isoYear(e.date) === params.year);
-  if (!entry) return notFound();
+function paraSplit(s: string) {
+  return s.replace(/\r\n/g, "\n").split(/\n\s*\n/);
+}
 
-  const paragraphs = entry.bodyMarkdown.trim().split(/\n{2,}/);
+export default function DiaryEntry({ params }: Params) {
+  const entry = diary.find((d) => d.slug === params.slug);
+  if (!entry) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
+        <BackHome />
+        <p className="text-ink/70">couldn’t load that just now</p>
+      </div>
+    );
+  }
+
+  const paras = paraSplit(entry.bodyMarkdown);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
       <BackHome />
-      <header className="mb-3">
-        <EmojiTitle emoji="📖" text={entry.title} />
-        <p className="mt-1 text-sm text-ink/60">
-          <time dateTime={entry.date}>
-            {formatISODateLabel(entry.date, { month: "long" })}
-          </time>
+      <header className="mb-6">
+        <EmojiTitle emoji="📓" text={entry.title} />
+        <p className="text-ink/60">
+          {new Date(entry.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            timeZone: "America/Los_Angeles",
+          })}
         </p>
       </header>
 
-      <article className="leading-relaxed text-ink/90 [text-wrap:pretty]">
-        <div className="space-y-4">
-          {paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </div>
+      <article className="prose prose-ink max-w-none">
+        {paras.map((p, i) => (
+          <p key={i} dangerouslySetInnerHTML={{ __html: autoLink(p) }} />
+        ))}
       </article>
     </div>
   );

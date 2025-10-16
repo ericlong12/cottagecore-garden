@@ -26,7 +26,7 @@ export default function YearArchive({ params }: Params) {
     .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
       <BackHome />
       <header className="mb-6">
         <EmojiTitle emoji="📖" text={`Diary — ${year}`} />
@@ -37,13 +37,10 @@ export default function YearArchive({ params }: Params) {
       ) : (
         <ul className="space-y-3">
           {list.map((e) => (
-            <li
-              key={`${year}-${e.slug}`}
-              className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-sm"
-            >
+            <li key={`${year}-${e.slug}`} className="card p-4">
               <Link
                 href={`/diary/${year}/${e.slug}`}
-                className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                className="block focus-ring"
               >
                 <div className="text-sm text-ink/60">
                   <time dateTime={e.date}>{formatISODateLabel(e.date)}</time>

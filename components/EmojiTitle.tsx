@@ -1,19 +1,19 @@
+// components/EmojiTitle.tsx
+import * as React from "react";
+
 type Props = {
   emoji: string;
-  title?: string;      // preferred
-  text?: string;       // legacy alias
-  subtitle?: string;
+  text?: string;   // canonical prop
+  title?: string;  // TEMP alias; we'll remove after callers migrate
+  className?: string;
 };
 
-export default function EmojiTitle({ emoji, title, text, subtitle }: Props) {
-  const heading = title ?? text ?? "";
+export default function EmojiTitle({ emoji, text, title, className = "" }: Props) {
+  const label = text ?? title ?? "";
   return (
-    <div className="mb-2">
-      <h1 className="font-serif text-2xl text-ink flex items-center gap-2">
-        <span aria-hidden="true">{emoji}</span>
-        <span>{heading}</span>
-      </h1>
-      {subtitle ? <p className="text-ink/70">{subtitle}</p> : null}
-    </div>
+    <h1 className={`flex items-center gap-2 font-serif text-2xl text-ink md:text-3xl ${className}`}>
+      <span aria-hidden="true">{emoji}</span>
+      <span>{label}</span>
+    </h1>
   );
 }

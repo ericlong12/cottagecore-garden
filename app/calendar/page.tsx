@@ -31,7 +31,7 @@ export default function CalendarPage() {
       </header>
 
       {upcoming.length === 0 ? (
-        <div className="rounded-2xl border border-ink/10 bg-cream/60 p-6 shadow-sm text-center">
+        <div className="card p-4">
           <p className="text-ink/70 mb-2">no upcoming plans yet—check the archive 🌿</p>
           {archiveYears.length > 0 && (
             <div className="mt-4">
@@ -41,7 +41,7 @@ export default function CalendarPage() {
                   <li key={y}>
                     <Link
                       href={`/calendar/archive/${y}`}
-                      className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                      className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 hover:bg-ink/5 focus-ring"
                     >
                       {y} →
                     </Link>
@@ -66,7 +66,7 @@ export default function CalendarPage() {
                   <li key={y}>
                     <Link
                       href={`/calendar/archive/${y}`}
-                      className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                      className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 hover:bg-ink/5 focus-ring"
                     >
                       {y} →
                     </Link>

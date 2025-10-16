@@ -26,7 +26,7 @@ export default function DiaryIndex() {
   const years = Object.keys(groups).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-3xl px-4 pb-16 pt-6" id="main">
       <BackHome />
 
       <header className="mb-6">
@@ -39,13 +39,10 @@ export default function DiaryIndex() {
           <h2 className="mb-3 font-serif text-xl text-ink">{year}</h2>
           <ul className="space-y-3">
             {groups[year].map((e) => (
-              <li
-                key={`${year}-${e.slug}`}
-                className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-sm transition hover:shadow-md motion-reduce:transition-none motion-reduce:hover:shadow-sm"
-              >
+              <li key={`${year}-${e.slug}`} className="card p-4">
                 <Link
                   href={`/diary/${year}/${e.slug}`}
-                  className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                  className="block focus-ring"
                   aria-label={`Open diary entry: ${e.title}`}
                 >
                   <div className="text-sm text-ink/60">
@@ -60,7 +57,7 @@ export default function DiaryIndex() {
           <div className="mt-3">
             <Link
               href={`/diary/${year}`}
-              className="text-sm text-ink/70 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+              className="text-sm text-ink/70 underline underline-offset-2 focus-ring"
             >
               View all {year} entries →
             </Link>

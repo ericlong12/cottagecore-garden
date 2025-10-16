@@ -14,15 +14,15 @@ export default function WishlistPage() {
   const list = teas.filter((t) => t.wishlist);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-5xl px-4 pb-16 pt-6" id="main">
       <BackHome />
       <header className="mb-6">
-        <EmojiTitle emoji="📝" title="Tea Wishlist" />
+        <EmojiTitle emoji="📝" text="Tea Wishlist" />
         <p className="mt-1 text-ink/70">teas I’d like to try next</p>
       </header>
 
       {list.length === 0 ? (
-        <div className="mx-auto mt-12 max-w-md rounded-2xl border border-ink/10 bg-cream/60 p-6 shadow-sm text-center">
+        <div className="mx-auto mt-12 max-w-md card p-6 text-center">
           <h2 className="mb-2 text-lg font-semibold heading-serif">
             Wishlist is empty
           </h2>

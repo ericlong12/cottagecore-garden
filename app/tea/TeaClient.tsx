@@ -43,11 +43,11 @@ export default function TeaClient() {
   }, [type, sort]);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 pb-16 pt-6">
+    <div className="mx-auto max-w-5xl px-4 pb-16 pt-6" id="main">
       <BackHome />
 
       <header className="mb-6">
-        <EmojiTitle emoji="🍵" title="Tea Journal" />
+        <EmojiTitle emoji="🍵" text="Tea Journal" />
         <p className="mt-1 text-ink/70">sips, ratings, and steeped thoughts</p>
       </header>
 
@@ -59,7 +59,7 @@ export default function TeaClient() {
               key={t}
               type="button"
               onClick={() => setType(t as any)}
-              className={`rounded-full border px-3 py-1 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage
+              className={`rounded-full border px-3 py-1 text-sm transition focus-ring
                 ${type === t ? "border-sage bg-sage/20 text-ink" : "border-ink/10 bg-cream/60 text-ink/80 hover:bg-ink/5"}`}
               aria-pressed={type === t}
             >
@@ -73,7 +73,7 @@ export default function TeaClient() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortKey)}
-            className="rounded-lg border border-ink/10 bg-cream px-2 py-1 text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+            className="rounded-lg border border-ink/10 bg-cream px-2 py-1 text-ink focus-ring"
           >
             <option value="rating">Rating</option>
             <option value="date">Date tried</option>
@@ -82,19 +82,19 @@ export default function TeaClient() {
       </div>
 
       {/* Results count */}
-      <p className="text-sm text-ink/60 mb-4" aria-live="polite" role="status">
+      <p className="mb-4 text-sm text-ink/60" aria-live="polite" role="status">
         {list.length} teas • sorted by {sort}
         {type !== "all" && <> • type: {type}</>}
       </p>
 
       {/* Empty state */}
       {list.length === 0 ? (
-        <div className="mx-auto mt-12 max-w-md rounded-2xl border border-ink/10 bg-cream/60 p-6 shadow-sm text-center">
+        <div className="mx-auto mt-12 max-w-md card p-6 text-center">
           <h2 className="mb-2 text-lg font-semibold heading-serif">No teas match that filter yet</h2>
           <p className="mb-4 text-sm text-ink/70">Try a different type, or peek at the wishlist.</p>
           <a
             href="/tea/wishlist"
-            className="inline-flex items-center rounded-full border border-ink/10 bg-lavender/20 px-3 py-1 text-ink/80 hover:bg-lavender/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+            className="inline-flex items-center rounded-full border border-ink/10 bg-lavender/20 px-3 py-1 text-ink/80 hover:bg-lavender/30 focus-ring"
           >
             View wishlist →
           </a>
@@ -110,7 +110,7 @@ export default function TeaClient() {
       <div className="mt-8 text-sm">
         <a
           href="/tea/wishlist"
-          className="inline-flex items-center rounded-full border border-ink/10 bg-lavender/20 px-3 py-1 text-ink/80 hover:bg-lavender/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+          className="inline-flex items-center rounded-full border border-ink/10 bg-lavender/20 px-3 py-1 text-ink/80 hover:bg-lavender/30 focus-ring"
         >
           View wishlist →
         </a>

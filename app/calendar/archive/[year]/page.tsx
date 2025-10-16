@@ -32,11 +32,11 @@ export default function YearArchive({ params }: Params) {
       </header>
 
       {list.length === 0 ? (
-        <div className="rounded-2xl border border-ink/10 bg-cream/60 p-6 shadow-sm text-center">
+        <div className="card p-4">
           <p className="text-ink/70 mb-2">no entries for {params.year} yet</p>
           <Link
             href="/calendar"
-            className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 mt-4 hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+            className="inline-flex items-center rounded-full border border-ink/10 bg-cream px-3 py-1 mt-4 hover:bg-ink/5 focus-ring"
           >
             ← Back to calendar
           </Link>

@@ -16,20 +16,27 @@ html, body {
   color: var(--text);
 }
 
+/* Card shell — use this everywhere a card appears */
 .card {
-  @apply rounded-2xl border border-moss/30 bg-white/60 shadow-soft backdrop-blur px-5 py-4;
+  @apply rounded-2xl border border-ink/10 bg-cream/60 shadow-soft transition
+         hover:shadow-md motion-reduce:transition-none;
 }
 
-.card:hover {
-  @apply shadow-lg;
+/* Reusable focus ring helper for links/buttons/controls */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage;
 }
 
 .btn {
-  @apply inline-flex items-center gap-2 rounded-xl border border-moss/30 bg-cream/70 px-4 py-2 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-white/80 hover:shadow-md;
+  @apply inline-flex items-center gap-2 rounded-xl border border-moss/30 bg-cream/70 px-4 py-2
+         text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:bg-white/80 hover:shadow-md
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage
+         motion-reduce:transform-none motion-reduce:transition-none;
 }
 
 .ribbon-back {
-  @apply inline-flex items-center gap-2 rounded-xl border border-moss/40 bg-white/70 px-3 py-1 text-sm text-ink;
+  @apply inline-flex items-center gap-2 rounded-xl border border-moss/40 bg-white/70 px-3 py-1
+         text-sm text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage;
 }
 
 .leaf {
@@ -45,3 +52,11 @@ html, body {
 }
 
 h1, h2, h3, .heading-serif { font-family: var(--font-serif), serif; }
+
+/* Respect reduced motion for background leaves */
+@media (prefers-reduced-motion: reduce) {
+  .leaf {
+    animation: none !important;
+    opacity: 0.08;
+  }
+}
