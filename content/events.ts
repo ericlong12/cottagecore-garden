@@ -48,17 +48,50 @@ export const eventsByYear: Record<number, Event[]> = {
 
 export type CalendarEvent = {
   slug: string;
-  date: string;         // ISO YYYY-MM-DD (all-day)
+  date: string;           // ISO YYYY-MM-DD (all-day)
   title: string;
   location?: string;
   url?: string;
   notes?: string;
-  tags?: string[];      // talk, meetup, workshop, conference, hackathon, playtest, travel, personal
+  tags?: string[];        // talk, meetup, workshop, conference, hackathon, playtest, travel, personal ... (tolerant to others)
+  photo?: string;         // OPTIONAL: small thumb under /public/**
+  alt?: string;           // alt text when photo present
 };
 
 // Placeholder empty list — populate with your real events later
 export const events: CalendarEvent[] = [
-  // keep your existing events here; add tags when you like
-  // example:
-  // { slug: "local-meetup", date: "2025-03-14", title: "Local JS Meetup", location: "Seattle", url: "https://…", tags: ["meetup"] },
+  {
+    slug: "give-thanks-2025",
+    date: "2025-11-27",               // US Thanksgiving (4th Thu of Nov 2025)
+    title: "Give Thanks 2025",
+    tags: ["personal"],
+    photo: "/calendar/givethanks.webp",
+    alt: "table with thanksgiving-themed food and decor",
+  },
+  {
+    slug: "burning-man-2025",
+    date: "2025-08-25",               // pick a representative all-day date
+    title: "Burning Man",
+    location: "Black Rock City, NV",
+    tags: ["travel", "festival"],
+    // add a photo later if you want: photo: "/calendar/burningman.webp", alt: "..."
+  },
+  {
+    slug: "fanime-con-2025",
+    date: "2025-05-24",               // Memorial Day weekend (Fanime runs Fri–Mon)
+    title: "Fanime Con",
+    location: "San Jose McEnery Convention Center",
+    tags: ["conference", "travel"],
+    photo: "/calendar/fananime.webp",
+    alt: "crowd at Fanime Con with cosplay",
+  },
+  {
+    slug: "anime-expo-2025",
+    date: "2025-07-04",               // AX is usually around July 4 weekend
+    title: "Anime Expo",
+    location: "Los Angeles Convention Center",
+    tags: ["conference", "travel"],
+    photo: "/calendar/animeexpo.webp",
+    alt: "Anime Expo signage with attendees",
+  },
 ];

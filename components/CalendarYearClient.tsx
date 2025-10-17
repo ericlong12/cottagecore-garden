@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { googleLink, icsDataURI } from "@/lib/calendar";
 
 export type CalendarEvent = {
@@ -11,6 +12,8 @@ export type CalendarEvent = {
   url?: string;
   notes?: string;
   tags?: string[];
+  photo?: string;
+  alt?: string;
 };
 
 function formatDateLA(iso: string) {
@@ -61,8 +64,20 @@ export default function CalendarYearClient({ year, events }: { year: number; eve
               className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-soft transition hover:shadow-md motion-reduce:transition-none"
               aria-label={`${e.title} on ${e.date}`}
             >
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                <div>
+              <div className="flex items-start gap-3">
+                {e.photo ? (
+                  <div className="relative h-16 w-24 overflow-hidden rounded-lg bg-ink/5">
+                    <Image
+                      src={e.photo}
+                      alt={e.alt ?? ""}
+                      fill
+                      className="object-cover"
+                      sizes="96px"
+                    />
+                  </div>
+                ) : null}
+
+                <div className="min-w-0 flex-1">
                   <div className="text-sm text-ink/70">{formatDateLA(e.date)}</div>
                   <h3 className="font-serif text-lg text-ink">{e.title}</h3>
                   {e.location && <div className="text-sm text-ink/70">{e.location}</div>}
@@ -75,34 +90,34 @@ export default function CalendarYearClient({ year, events }: { year: number; eve
                       ))}
                     </div>
                   ) : null}
-                </div>
 
-                <div className="mt-2 flex shrink-0 items-center gap-3 sm:mt-0">
-                  <a
-                    href={googleLink(e)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
-                  >
-                    Add to Google
-                  </a>
-                  <a
-                    href={icsDataURI(e)}
-                    download={`${e.slug}.ics`}
-                    className="text-sm underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
-                  >
-                    Download .ics
-                  </a>
-                  {e.url && (
+                  <div className="mt-2 flex flex-wrap items-center gap-3">
                     <a
-                      href={e.url}
+                      href={googleLink(e)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
                     >
-                      Link
+                      Add to Google
                     </a>
-                  )}
+                    <a
+                      href={icsDataURI(e)}
+                      download={`${e.slug}.ics`}
+                      className="text-sm underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                    >
+                      Download .ics
+                    </a>
+                    {e.url && (
+                      <a
+                        href={e.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                      >
+                        Link
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </li>
