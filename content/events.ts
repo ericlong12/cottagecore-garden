@@ -69,12 +69,13 @@ export const events: CalendarEvent[] = [
     alt: "table with thanksgiving-themed food and decor",
   },
   {
-    slug: "burning-man-2025",
-    date: "2025-08-25",               // pick a representative all-day date
-    title: "Burning Man",
-    location: "Black Rock City, NV",
-    tags: ["travel", "festival"],
-    // add a photo later if you want: photo: "/calendar/burningman.webp", alt: "..."
+    slug: "cruise-2025",
+    date: "2025-09-12",               // pick a representative all-day date
+    title: "Cruise Ship Trip",
+    location: "Pacific Coast",
+    tags: ["travel"],
+    photo: "/calendar/cruiseship.webp",
+    alt: "sunset over cruise ship deck",
   },
   {
     slug: "fanime-con-2025",
