@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const list = [...projects].sort(
-    (a, b) => b.year - a.year || a.title.localeCompare(b.title)
+    (a, b) => (b.year ?? 0) - (a.year ?? 0) || a.title.localeCompare(b.title)
   );
 
   const jsonLd = {

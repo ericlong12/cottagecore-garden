@@ -8,30 +8,28 @@ export type ProjectCardProps = { project: Project };
 export default function ProjectCard({ project }: ProjectCardProps) {
   const { slug, title, year, blurb, tech = [], github, live, thumbnail, alt } = project;
   const headingId = `p-${slug}`;
-
-  // Canonicalize tech labels for display (content stays untouched)
   const { canon, unknown } = splitTech(tech);
   const techToShow = [...canon, ...unknown];
 
   return (
     <article
-      className="card px-5 py-4"
+      className="rounded-2xl border border-ink/10 bg-cream/60 p-4 shadow-soft transition hover:shadow-md motion-reduce:transition-none"
       aria-labelledby={headingId}
     >
-      <div className="flex gap-4">
+      <div className="flex flex-col gap-3">
         {thumbnail ? (
-          <div className="relative aspect-[16/9] w-48 overflow-hidden rounded-xl bg-ink/5">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-ink/5">
             <Image
               src={thumbnail}
               alt={alt ?? title}
               fill
-              className="object-cover transition will-change-transform group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
-              sizes="(max-width: 640px) 60vw, 192px"
+              className="object-contain p-2"
+              sizes="(max-width: 640px) 90vw, 520px"
             />
           </div>
         ) : null}
 
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0">
           <h3 id={headingId} className="truncate font-serif text-lg text-ink md:text-xl">
             {title}
           </h3>
