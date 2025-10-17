@@ -36,7 +36,7 @@ export const plushies: Plushie[] = [
   {
     id: "thistle",
     name: "Thistle",
-    species: "sky dragon (Jellycat)",
+    species: "sky dragon",
     avatar: "/plushies/thistle.png",
     traits: ["curious", "nerd sparkle", "bug hunter"],
     funFact: "Names clouds after programming languages.",
@@ -47,7 +47,7 @@ export const plushies: Plushie[] = [
   {
     id: "puddlewick",
     name: "Puddlewick",
-    species: "frog",
+    species: "tolkien frog",
     avatar: "/plushies/puddlewick.png",
     traits: ["bouncy", "garden scout", "balloon-animal apprentice"],
     funFact: "Knows how to twist 3 balloon animals without popping them (usually).",
@@ -58,7 +58,7 @@ export const plushies: Plushie[] = [
   {
   id: "fable",
   name: "Fable",
-  species: "tan bunny",
+  species: "knot bunny",
   avatar: "/plushies/fable.png",
   traits: ["storyteller", "gentle paws", "dawn cuddler"],
   funFact: "Can recall the first line of every bedtime story.",

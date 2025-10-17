@@ -85,7 +85,7 @@ export default function PlushiesPage() {
 
                 {p.funFact && (
                   <p className="mt-3 text-sm text-ink/80">
-                    <span className="font-medium">💡 Fun fact:</span>{' '}
+                    <strong className="font-semibold">Fun fact:</strong>{' '}
                     <span className="line-clamp-2">{p.funFact}</span>
                   </p>
                 )}
