@@ -1,33 +1,35 @@
 export type DiaryEntry = {
   slug: string;
-  date: string; // ISO YYYY-MM-DD
+  date: string;           // ISO date
   title: string;
-  bodyMarkdown: string;
+  bodyMarkdown: string;   // paragraphs split by blank lines
+  photo?: string;         // optional image under /public/**
+  alt?: string;           // required if photo is provided
 };
 
 export const diary: DiaryEntry[] = [
   {
-    slug: "on-plushie-conversations",
-    date: "2025-08-28",
-    title: "On Plushie Conversations",
-    bodyMarkdown: `Sometimes I wonder if my plushies are little mirrors, reflecting moods I don't say out loud.
+    slug: "san-francisco-tech-week",
+    date: "2025-10-11",
+    title: "San Francisco Tech Week",
+    bodyMarkdown: `This has to be one of the craziest events I've been to. I had so much fun in SF, me and a group of friends went to SF using the Cal Train. I highly recommend that train btw, it takes about 1hr and 20mins to reach SF from San Jose.
 
-Today Sprout was especially chirpy, so maybe I was too. Mochi disagreed, but Mochi often does.`,
+Anyway, this event was crazy because it was going on the same time as fleet week, which is a week where the blue Angels are flying. (a super elite planes and pilots) However, this year the blue angels got defunded because our government shut down LOL.
+
+One memorable experience from this trip was that I met QQQQQQQ which was talking about his relationship situation to me. I think he was QQQQQQQ, but I loved his energy LOL.`,
+    photo: "/diary/dj.webp",
+    alt: "DJ setup at an outdoor event during San Francisco Tech Week",
   },
   {
-    slug: "tea-as-weather",
-    date: "2025-08-15",
-    title: "Tea as Weather",
-    bodyMarkdown: `Hojicha feels like draping myself in dusk. Heavy, earthy, grounding.
+    slug: "meeting-the-founder-of-mingle",
+    date: "2025-10-16",
+    title: "Meeting the Founder of Mingle",
+    bodyMarkdown: `Thursday October 16
 
-I needed that after a day where my head felt like clouds about to burst.`,
-  },
-  {
-    slug: "quiet-friday",
-    date: "2025-06-06",
-    title: "Quiet Friday",
-    bodyMarkdown: `Fixed a tiny bug, watered the basil, and let Thistle guard a fresh stack of books.
+Today was great. I got to shoot and film some cool and funny videos with the creator of Mingle, he such a funny guy. We went around the SJSU campus and asked students if they wanted to help us promote the app Mingle by shooting funny interviews. By the way Mingle is a dating app made exclusively for SJSU students. It was fun because I got to talk and meet with a bunch of new people while we were filming. I realized that a lot of people are more shy than I originally thought, they usually don't want to be interviewed. However the people who did interview were awesome and had a great time. I think I learned that being an out going person is more rewarding than being someone shy 
 
-Small progress tastes like honey.`,
+https://www.getmingel.com`,
+    photo: "/diary/mingle.webp",
+    alt: "Filming around SJSU campus to promote the Mingle app",
   },
 ];
