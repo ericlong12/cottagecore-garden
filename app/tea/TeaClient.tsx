@@ -78,7 +78,7 @@ export default function TeaClient() {
 
       {count === 0 ? (
         <div className="mt-8 rounded-2xl border border-moss/30 bg-white/60 p-6 text-ink/70">
-          No teas yet — add entries in <code>content/teas.ts</code> and put photos in <code>/public/tea</code>.
+          I never tried this tea before 😭
         </div>
       ) : (
         <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
