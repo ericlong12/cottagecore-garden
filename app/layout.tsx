@@ -21,6 +21,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="apple-touch-icon" href="/plushies/malice.png" />
+        <link rel="icon" href="/BunnyLogo.png" type="image/png" />
+        <link rel="shortcut icon" href="/BunnyLogo.png" type="image/png" />
+      </head>
       <body className={`${inter.className} ${dm.variable}`}>
         {/* Skip to content */}
         <a
